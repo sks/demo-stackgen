@@ -26,11 +26,6 @@ helm_service_0e06f687265f5b9faf8c10b4a82aa713:
         service: myapp
     target_port: 8000
     type: ClusterIP
-helm_service_account_7d92be194ffe5d5ebc5d5e9b3ee58176:
-    annotations: {}
-    automount: false
-    labels: {}
-    name: management_service
 helm_workload_d73df0fcbbb451e2bcb81348b92e5054:
     env:
         POSTGRES_CONNECTION_STRING: some-connection-string
@@ -47,6 +42,6 @@ helm_workload_d73df0fcbbb451e2bcb81348b92e5054:
     port: 8000
     protocol: TCP
     replicas: 1
-    service_account: management_service
+    service_account: ""
     volume_mounts: []
     volumes: []
