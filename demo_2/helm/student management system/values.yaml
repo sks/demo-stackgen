@@ -1,0 +1,41 @@
+helm_hpa_3cf4a5d4f93c5766aea2a55a19752e42:
+    enabled: true
+    max_replicas: 2
+    min_replicas: 1
+    name: student_service
+    target_cpu_utilization_percentage: 50
+    target_memory_utilization_percentage: 50
+    workload_kind: Deployment
+    workload_name: student_service
+helm_service_88f928231cd458fb89e25e9133097855:
+    name: student_service
+    port: 8080
+    protocol: TCP
+    selector_labels:
+        service: myapp
+    target_port: 8080
+    type: ClusterIP
+helm_service_account_c9664321c09f5f23b4d37a8ac323fc7b:
+    annotations: {}
+    automount: false
+    labels: {}
+    name: student_service
+helm_workload_861315ddeece523bb427365adf92f225:
+    env:
+        DYNAMODB_TABLE: student-table
+    env_from_config: []
+    env_from_secret: []
+    image: ""
+    image_pull_policy: Always
+    image_pull_secret: null
+    image_tag: ""
+    kind: Deployment
+    labels:
+        service: myapp
+    name: student_service
+    port: 8080
+    protocol: TCP
+    replicas: 1
+    service_account: student_service
+    volume_mounts: []
+    volumes: []

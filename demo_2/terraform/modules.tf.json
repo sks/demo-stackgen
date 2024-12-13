@@ -1,0 +1,36 @@
+{
+  "module": {
+    "stackgen_01aa35cc-a59c-4636-816d-be75e07cbdbf": {
+      "name": "${dynamodb_table}-aws_dynamodb-student_service-policy",
+      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"studentserviceDYNAMODBTABLEDynamoDBTable27cd3301ab2058cc879a6e1f05e79942\",\n      \"Action\": [\n        \"dynamodb:PutItem\",\n        \"dynamodb:GetItem\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_27cd3301-ab20-58cc-879a-6e1f05e79942.arn}\"\n      ]\n    }\n  ]\n}",
+      "role": "${module.stackgen_ec1a637a-bb6b-5251-b9f0-272ef408156f.name}",
+      "role_type": "Custom",
+      "source": "./modules/aws_iam_role_policy"
+    },
+    "stackgen_27cd3301-ab20-58cc-879a-6e1f05e79942": {
+      "attribute": [
+        {
+          "name": "id",
+          "type": "S"
+        }
+      ],
+      "billing_mode": "PROVISIONED",
+      "global_secondary_indexes": [],
+      "hash_key": "id",
+      "local_secondary_indexes": [],
+      "point_in_time_recovery_enabled": true,
+      "range_key": "",
+      "read_capacity": 1,
+      "server_side_encryption_enabled": true,
+      "source": "./modules/aws_dynamodb",
+      "stream_view_type": "NEW_IMAGE",
+      "table_name": "${DYNAMODB_TABLE}",
+      "tags": {
+        "appstack": "student management system",
+        "component": "student_service"
+      },
+      "ttl": [],
+      "write_capacity": 1
+    }
+  }
+}
