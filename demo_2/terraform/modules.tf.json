@@ -31,6 +31,52 @@
       },
       "ttl": [],
       "write_capacity": 1
+    },
+    "stackgen_2d9d0bee-b9c4-4dfd-8d43-68cb7366450d": {
+      "include_lowercase": true,
+      "include_numbers": true,
+      "include_special": true,
+      "include_uppercase": true,
+      "min_lowercase": 0,
+      "min_numeric": 0,
+      "min_special": 0,
+      "min_uppercase": 0,
+      "override_special": "!#$%\u0026*()-_=+[]{}\u003c\u003e:?",
+      "password_length": 16,
+      "source": "./modules/general_password"
+    },
+    "stackgen_e58d9612-d9a8-4e87-8bb6-f81ad07d0cd2": {
+      "cluster_identifier": null,
+      "rds_auto_pause": true,
+      "rds_availability_zones": [
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "rds_backup_retention_period": 9,
+      "rds_database_name": "default",
+      "rds_db_subnet_group_name": "default",
+      "rds_engine": "postgres",
+      "rds_engine_mode": "provisioned",
+      "rds_engine_version": "16.4",
+      "rds_master_password": "${module.stackgen_2d9d0bee-b9c4-4dfd-8d43-68cb7366450d.value}",
+      "rds_master_username": "admin",
+      "rds_max_capacity": 2,
+      "rds_min_capacity": 1,
+      "rds_preferred_backup_window": "07:00-09:00",
+      "rds_preferred_maintenance_window": "sun:05:00-sun:06:00",
+      "rds_storage_encrypted": true,
+      "region": "${var.region}",
+      "security_groups": null,
+      "source": "./modules/aws_rds",
+      "tags": null,
+      "use_custom_kms_key_for_encryption": false
+    },
+    "stackgen_ed59838a-a741-4ad7-a732-0a763b6bd692": {
+      "name": "Reader",
+      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"e58d9612d9a84e878bb6f81ad07d0cd20\",\n      \"Action\": [\n        \"rds:DescribeDBInstances\",\n        \"rds:DescribeDBSnapshots\",\n        \"rds:DescribeDBClusters\",\n        \"rds:DescribeDBSubnetGroups\",\n        \"rds:DescribeDBClusterSnapshots\",\n        \"rds:DescribeDBParameterGroups\",\n        \"rds:DescribeDBParameters\",\n        \"rds:DescribeDBEngineVersions\",\n        \"rds:DescribeEvents\",\n        \"rds:DescribeEventSubscriptions\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_e58d9612-d9a8-4e87-8bb6-f81ad07d0cd2.arn}\"\n      ]\n    }\n  ]\n}",
+      "role": "${module.stackgen_ec1a637a-bb6b-5251-b9f0-272ef408156f.name}",
+      "role_type": "Reader",
+      "source": "./modules/aws_iam_role_policy"
     }
   }
 }
