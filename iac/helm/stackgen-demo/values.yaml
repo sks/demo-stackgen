@@ -1,0 +1,52 @@
+helm_hpa_08a359023748517f9a6fa2cd84e1a845:
+    enabled: true
+    max_replicas: 2
+    min_replicas: 1
+    name: management_service
+    target_cpu_utilization_percentage: 50
+    target_memory_utilization_percentage: 50
+    workload_kind: Deployment
+    workload_name: management_service
+helm_ingress_c4e3f24efdb45de0b5fcc1768779cf8c:
+    annotations:
+        kubernetes.io/ingress.allow-http: "false"
+    class_name: management_service
+    default_backend_name: management_service
+    default_backend_port: 8000
+    labels:
+        service: myapp
+    name: management_service
+    rules: []
+    tls: ""
+helm_service_0e06f687265f5b9faf8c10b4a82aa713:
+    name: management_service
+    port: 8000
+    protocol: TCP
+    selector_labels:
+        service: myapp
+    target_port: 8000
+    type: ClusterIP
+helm_service_account_7d92be194ffe5d5ebc5d5e9b3ee58176:
+    annotations: {}
+    automount: false
+    labels: {}
+    name: management_service
+helm_workload_d73df0fcbbb451e2bcb81348b92e5054:
+    env:
+        POSTGRES_CONNECTION_STRING: some-connection-string
+    env_from_config: []
+    env_from_secret: []
+    image: ""
+    image_pull_policy: Always
+    image_pull_secret: null
+    image_tag: ""
+    kind: Deployment
+    labels:
+        service: myapp
+    name: management_service
+    port: 8000
+    protocol: TCP
+    replicas: 1
+    service_account: management_service
+    volume_mounts: []
+    volumes: []
