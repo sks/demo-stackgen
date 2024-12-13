@@ -1,15 +1,6 @@
 {
   "module": {
-    "stackgen_6b95b55c-7d59-5712-aca4-99df013b2bbe": {
-      "assume_role_policy": "{\n\t\t\"Version\": \"2012-10-17\",\n\t\t\"Statement\":{\n\t\t\t\t\"Action\": \"sts:AssumeRole\",\n\t\t\t\t\"Effect\": \"Allow\",\n\t\t\t\t\"Principal\": {\n\t\t\t\t\t\"Service\": \"eks.amazonaws.com\"\n\t\t\t\t}\n\t\t\t}\n\t}",
-      "description": null,
-      "force_detach_policies": true,
-      "inline_policy": [],
-      "name": "management_service-role",
-      "source": "./modules/aws_iam_role",
-      "tags": null
-    },
-    "stackgen_bc72e470-6335-473e-b3ca-c0d3a9450b16": {
+    "stackgen_1d58d568-0e6e-48f1-84fd-8262fbdc4f4c": {
       "cluster_identifier": null,
       "rds_auto_pause": true,
       "rds_availability_zones": [
@@ -35,9 +26,9 @@
       "tags": null,
       "use_custom_kms_key_for_encryption": false
     },
-    "stackgen_e3a60f48-d109-4d00-984f-92ef87005e0d": {
+    "stackgen_b193ced9-972d-46af-8fde-e94d84223137": {
       "name": "Reader",
-      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"bc72e4706335473eb3cac0d3a9450b160\",\n      \"Action\": [\n        \"rds:DescribeDBInstances\",\n        \"rds:DescribeDBSnapshots\",\n        \"rds:DescribeDBClusters\",\n        \"rds:DescribeDBSubnetGroups\",\n        \"rds:DescribeDBClusterSnapshots\",\n        \"rds:DescribeDBParameterGroups\",\n        \"rds:DescribeDBParameters\",\n        \"rds:DescribeDBEngineVersions\",\n        \"rds:DescribeEvents\",\n        \"rds:DescribeEventSubscriptions\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_bc72e470-6335-473e-b3ca-c0d3a9450b16.arn}\"\n      ]\n    }\n  ]\n}",
+      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"1d58d5680e6e48f184fd8262fbdc4f4c0\",\n      \"Action\": [\n        \"rds:DescribeDBInstances\",\n        \"rds:DescribeDBSnapshots\",\n        \"rds:DescribeDBClusters\",\n        \"rds:DescribeDBSubnetGroups\",\n        \"rds:DescribeDBClusterSnapshots\",\n        \"rds:DescribeDBParameterGroups\",\n        \"rds:DescribeDBParameters\",\n        \"rds:DescribeDBEngineVersions\",\n        \"rds:DescribeEvents\",\n        \"rds:DescribeEventSubscriptions\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_1d58d568-0e6e-48f1-84fd-8262fbdc4f4c.arn}\"\n      ]\n    }\n  ]\n}",
       "role": "${module.stackgen_6b95b55c-7d59-5712-aca4-99df013b2bbe.name}",
       "role_type": "Reader",
       "source": "./modules/aws_iam_role_policy"
