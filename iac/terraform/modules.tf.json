@@ -13,7 +13,7 @@
       "rds_engine": "postgres",
       "rds_engine_mode": "provisioned",
       "rds_engine_version": "16.4",
-      "rds_master_password": "password",
+      "rds_master_password": "${module.stackgen_cb4c6981-4e44-4017-90f3-8e63ff3bed29.value}",
       "rds_master_username": "admin",
       "rds_max_capacity": 2,
       "rds_min_capacity": 1,
@@ -21,9 +21,13 @@
       "rds_preferred_maintenance_window": "sun:05:00-sun:06:00",
       "rds_storage_encrypted": true,
       "region": "${var.region}",
-      "security_groups": null,
+      "security_groups": [],
       "source": "./modules/aws_rds",
-      "tags": null,
+      "tags": {
+        "appstack": "stackgen-demo",
+        "created_by": "sabith",
+        "maintained-by": "sabith"
+      },
       "use_custom_kms_key_for_encryption": false
     },
     "stackgen_b193ced9-972d-46af-8fde-e94d84223137": {
@@ -32,6 +36,19 @@
       "role": "${module.stackgen_6b95b55c-7d59-5712-aca4-99df013b2bbe.name}",
       "role_type": "Reader",
       "source": "./modules/aws_iam_role_policy"
+    },
+    "stackgen_cb4c6981-4e44-4017-90f3-8e63ff3bed29": {
+      "include_lowercase": true,
+      "include_numbers": true,
+      "include_special": true,
+      "include_uppercase": true,
+      "min_lowercase": 0,
+      "min_numeric": 0,
+      "min_special": 0,
+      "min_uppercase": 0,
+      "override_special": "!#$%\u0026*()-_=+[]{}\u003c\u003e:?",
+      "password_length": 16,
+      "source": "./modules/general_password"
     }
   }
 }
