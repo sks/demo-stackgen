@@ -8,9 +8,6 @@
       "name": "StudentService-role",
       "source": "./modules/aws_iam_role",
       "tags": null
-    },
-    "stackgen_380bc03e-c382-4b82-929a-6cace38007dd": {
-      "source": "./modules/custom_asdasd"
     }
   }
 }
